@@ -181,7 +181,6 @@ const AboutPage = () => {
         initial="initial"
         animate="animate"
       >
-        <MetamaskIcon />
         <h1 style={titleStyle}>About</h1>
         <div style={gridStyle}>
           <FiliaCard />
