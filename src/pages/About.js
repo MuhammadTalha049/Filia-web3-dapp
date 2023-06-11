@@ -119,12 +119,7 @@ const AboutPage = () => {
     };
 
     return (
-      <motion.div
-        style={filiaCardStyle}
-        variants={cardVariants}
-        initial="initial"
-        whileHover="hover"
-      >
+      <div style={filiaCardStyle}>
         <h2 style={textStyle}>Filia</h2>
         <p>
           Filia is a decentralized video platform that aims to revolutionize the way we consume and share content. With Filia, users have full control over their data and can directly engage with content creators.
@@ -135,8 +130,9 @@ const AboutPage = () => {
           <li>Engage with creators</li>
           <li>Support your favorite creators</li>
         </ul>
-      </motion.div>
+      </div>
     );
+    
   };
 
   const TeamMemberCard = ({ name, role, avatar, github, linkedin }) => {
@@ -147,12 +143,7 @@ const AboutPage = () => {
     };
 
     return (
-      <motion.div
-        style={memberCardStyle}
-        variants={cardVariants}
-        initial="initial"
-        whileHover="hover"
-      >
+      <div style={memberCardStyle}>
         <div style={teamMemberStyle}>
           <div style={avatarStyle}>
             <img src={avatar} alt={name} style={avatarImageStyle} />
@@ -174,8 +165,9 @@ const AboutPage = () => {
             </a>
           )}
         </div>
-      </motion.div>
+      </div>
     );
+    
   };
 
   const MetamaskIcon = () => {
