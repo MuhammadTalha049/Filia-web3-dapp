@@ -49,8 +49,9 @@ function HeroHome() {
     document.body.style.background = `linear-gradient(45deg, ${color}, #000000)`;
   };
 
-  // Call the updateBackgroundGradient function initially to set the background gradient
-  updateBackgroundGradient();
+  useEffect(() => {
+    updateBackgroundGradient();
+  });
 
   return (
     <section
