@@ -12,7 +12,33 @@ import { CSSTransition } from "react-transition-group";
 function HeroHome() {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
   const navigate = useNavigate();
-  
+  useEffect(() => {
+    // Function to generate a random color
+    const getRandomColor = () => {
+      const color1 = [52, 220, 187]; // RGB values for the first color
+      const color2 = [52, 169, 220]; // RGB values for the second color
+      const color3 = [52, 85, 220]; // RGB values for the third color
+
+      const randomIndex = Math.floor(Math.random() * 3); // Generate a random index (0, 1, or 2)
+      const selectedColor = [color1, color2, color3][randomIndex]; // Select a color based on the random index
+
+      return `rgb(${selectedColor.join(",")})`; // Construct the RGB color string
+    };
+    const updateBackgroundGradient = () => {
+      const background = document.querySelector(".hero-background");
+
+      if (background) {
+        background.style.background = `linear-gradient(45deg, ${getRandomColor()}, ${getRandomColor()}, ${getRandomColor()})`;
+      }
+    };
+
+    // Update the background gradient every 3 seconds
+    const intervalId = setInterval(updateBackgroundGradient, 3000);
+
+    // Clear the interval when the component is unmounted
+    return () => clearInterval(intervalId);
+  }, []);
+
   const connectWallet = async (selectedWallet) => {
     try {
       const { ethereum } = window;
@@ -47,7 +73,8 @@ function HeroHome() {
       className="w-full dark relative bg-black flex flex-col justify-center items-center md:flex-row overflow-hidden"
       style={{ height: "100vh", width: "100vw" }}
     >       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 hero-background">
+
         {/* Hero content */}
         <div className="pt-8 pb-16 md:pt-20 md:pb-32">
           {/* Section header */}
