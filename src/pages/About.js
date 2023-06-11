@@ -170,39 +170,7 @@ const AboutPage = () => {
     
   };
 
-  const MetamaskIcon = () => {
-    const iconStyle = {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      opacity: 0.5,
-    };
-
-    const iconVariants = {
-      animate: {
-        scale: [1, 1.2, 1],
-        rotate: [0, 0, 360],
-        transition: {
-          duration: 6,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "linear",
-        },
-      },
-    };
-
-    return (
-      <motion.img
-        src={metamaskIcon}
-        alt="Metamask Icon"
-        style={iconStyle}
-        variants={iconVariants}
-        animate="animate"
-      />
-    );
-  };
+  
 
   return (
     <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
