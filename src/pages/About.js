@@ -24,10 +24,10 @@ const AboutPage = () => {
     padding: "0",
     backgroundColor: theme === "dark" ? "#111827" : "#F3F4F6",
     color: theme === "dark" ? "#FFFFFF" : "#374151",
-    minHeight: "100%",
+    minHeight: "100vh", // Set the minimum height of the container to occupy the full viewport height
     display: "flex",
     flexDirection: "column",
-    position: "relative", // Added position relative for the background animation
+    position: "relative",
   };
 
   const titleStyle = {
@@ -68,6 +68,7 @@ const AboutPage = () => {
 
   const teamMemberStyle = {
     marginBottom: "10px",
+    display: "flex", // Added display flex to align avatar and member details horizontally
   };
 
   const avatarStyle = {
@@ -81,6 +82,7 @@ const AboutPage = () => {
   const avatarImageStyle = {
     width: "100%",
     height: "100%",
+    objectFit: "cover", // Ensure the avatar image maintains its aspect ratio
   };
 
   const memberNameStyle = {
@@ -188,8 +190,8 @@ const AboutPage = () => {
 
     const iconVariants = {
       animate: {
-        scale: [1, 1.2, 1], // Add more values here for a smoother animation
-        rotate: [0, 0, 360], // Add more values here for a smoother animation
+        scale: [1, 1.2, 1],
+        rotate: [0, 0, 360],
         transition: {
           duration: 6,
           repeat: Infinity,
@@ -201,7 +203,7 @@ const AboutPage = () => {
 
     return (
       <motion.img
-      src={metamaskIcon}
+        src={metamaskIcon}
         alt="Metamask Icon"
         style={iconStyle}
         variants={iconVariants}
@@ -211,7 +213,7 @@ const AboutPage = () => {
   };
 
   return (
-    <div>
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
       <Header />
       <motion.div
         style={containerStyle}
@@ -219,7 +221,7 @@ const AboutPage = () => {
         initial="initial"
         animate="animate"
       >
-        <MetamaskIcon /> {/* Add the animated Metamask icon component here */}
+        <MetamaskIcon />
         <h1 style={titleStyle}>About</h1>
         <div style={gridStyle}>
           <FiliaCard />
