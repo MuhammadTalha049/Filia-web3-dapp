@@ -1,4 +1,3 @@
-// HeroHome.js
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaWallet, FaBitcoin, FaLink, FaRainbow, FaCircle } from "react-icons/fa";
@@ -40,7 +39,7 @@ function HeroHome() {
       <section className="w-full dark relative bg-black flex flex-col h-screen justify-center items-center md:flex-row">
         {/* Illustration behind hero content */}
         <div className="absolute animate-float transform -translate-x-1/2 pointer-events-none">
-        <svg
+          <svg
             width="1360"
             height="578"
             viewBox="0 0 1360 578"
@@ -64,7 +63,6 @@ function HeroHome() {
               <circle cx="155" cy="443" r="64" />
             </g>
           </svg>
-
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -76,8 +74,7 @@ function HeroHome() {
                 className="text-4xl md:text-5xl   text-white md:text-6xl font-extrabold leading-tighter tracking-tighter mb-4"
                 data-aos="zoom-y-out"
               >
-                Filia{" "}
-                
+                Filia
               </h1>
               <div className="max-w-3xl mx-auto">
                 <p
