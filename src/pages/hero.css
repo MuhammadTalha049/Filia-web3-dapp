@@ -1,0 +1,40 @@
+/* Styles for the wallet options pop-up modal */
+.wallet-options-enter {
+  opacity: 0;
+}
+
+.wallet-options-enter-active {
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.wallet-options-exit {
+  opacity: 1;
+}
+
+.wallet-options-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Styles for responsive design */
+@media (max-width: 768px) {
+  .wallet-button {
+    font-size: 14px;
+    padding: 2px 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .wallet-button {
+    font-size: 12px;
+    padding: 2px 10px;
+  }
+}
+
+@media (max-width: 414px) {
+  .wallet-button {
+    font-size: 10px;
+    padding: 2px 8px;
+  }
+}
