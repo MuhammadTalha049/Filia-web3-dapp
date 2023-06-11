@@ -12,7 +12,7 @@ import { CSSTransition } from "react-transition-group";
 function HeroHome() {
   const [showWalletOptions, setShowWalletOptions] = useState(false);
   const navigate = useNavigate();
-  
+
   const connectWallet = async (selectedWallet) => {
     try {
       const { ethereum } = window;
@@ -41,29 +41,22 @@ function HeroHome() {
     );
     navigate("/app");
   };
-  useEffect(() => {
-    const intervalId = setInterval(updateBackgroundGradient, 3000);
-
-    return () => clearInterval(intervalId);
-  }, []);
 
   const updateBackgroundGradient = () => {
     const colors = ["rgb(52, 220, 187)", "rgb(52, 169, 220)", "rgb(52, 85, 220)"];
     const randomIndex = Math.floor(Math.random() * colors.length);
     const color = colors[randomIndex];
     document.body.style.background = `linear-gradient(45deg, ${color}, #000000)`;
-  
-
-    const element = document.getElementById("heroSection");
-    Object.assign(element.style, backgroundStyle);
   };
-  
+
+  // Call the updateBackgroundGradient function initially to set the background gradient
+  updateBackgroundGradient();
+
   return (
     <section
-    id="heroSection"
-    className="w-full dark relative flex flex-col justify-center items-center md:flex-row overflow-hidden"
-    style={{ height: "100vh", width: "100vw" }}
-  >  
+      className="w-full dark relative bg-black flex flex-col justify-center items-center md:flex-row overflow-hidden"
+      style={{ height: "100vh", width: "100vw" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Hero content */}
         <div className="pt-8 pb-16 md:pt-20 md:pb-32">
