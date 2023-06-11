@@ -1,5 +1,8 @@
 /* Styles for the wallet options pop-up modal */
-
+html, body {
+  height: 100vh;
+  width: 100vw;
+  }
 .hero-content {
   top: 0;
   left: 50%;

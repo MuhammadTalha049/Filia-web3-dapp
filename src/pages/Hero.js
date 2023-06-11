@@ -7,6 +7,7 @@ import {
   FaRainbow,
   FaCircle,
 } from "react-icons/fa";
+import "./hero.css";
 import { CSSTransition } from "react-transition-group";
 
 function HeroHome() {
