@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   FaWallet,
@@ -46,17 +46,22 @@ function HeroHome() {
     const colors = ["rgb(52, 220, 187)", "rgb(52, 169, 220)", "rgb(52, 85, 220)"];
     const randomIndex = Math.floor(Math.random() * colors.length);
     const color = colors[randomIndex];
-    document.body.style.background = `linear-gradient(45deg, ${color}, #000000)`;
+    return `linear-gradient(45deg, ${color}, #000000)`;
   };
 
   useEffect(() => {
-    updateBackgroundGradient();
+    const backgroundGradient = updateBackgroundGradient();
+    document.body.style.background = backgroundGradient;
   });
 
   return (
     <section
-      className="w-full dark relative bg-black flex flex-col justify-center items-center md:flex-row overflow-hidden"
-      style={{ height: "100vh", width: "100vw" }}
+      className="w-full dark relative flex flex-col justify-center items-center md:flex-row overflow-hidden"
+      style={{
+        height: "100vh",
+        width: "100vw",
+        background: updateBackgroundGradient(),
+      }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Hero content */}
