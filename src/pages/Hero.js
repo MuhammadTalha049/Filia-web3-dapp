@@ -177,6 +177,8 @@ function HeroHome() {
           </div>
         </div>
       </CSSTransition>
+      {illustrationSvg}
+
       </div>
     </section>
   );
