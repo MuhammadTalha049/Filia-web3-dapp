@@ -46,10 +46,7 @@ function HeroHome() {
     <section
       className="w-full dark relative bg-black flex flex-col justify-center items-center md:flex-row overflow-hidden"
       style={{ height: "100vh", width: "100vw" }}
-    >
-      {/* Illustration behind hero content */}
-     
-
+    >       
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Hero content */}
         <div className="pt-8 pb-16 md:pt-20 md:pb-32">
