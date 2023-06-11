@@ -1,4 +1,28 @@
 /* Styles for the wallet options pop-up modal */
+
+.hero-content {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+}
+
+/* Adjust the position of the circles */
+.left-20 {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+}
+
+/* Adjust the position of the smaller circle */
+@media (max-width: 640px) {
+  .left-20 {
+    left: 2%;
+  }
+}
+
 .wallet-options-enter {
   opacity: 0;
 }

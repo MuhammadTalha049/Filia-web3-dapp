@@ -36,9 +36,9 @@ function HeroHome() {
 
   return (
     <>
-      <section className="w-full dark relative bg-black flex flex-col h-screen justify-center items-center md:flex-row">
-        {/* Illustration behind hero content */}
-        <div className="absolute animate-float transform -translate-x-1/2 pointer-events-none">
+      <section className="w-full dark relative bg-black flex flex-col h-screen justify-center items-center md:flex-row overflow-hidden">
+  <div className="hero-content absolute animate-float transform -translate-x-1/2 pointer-events-none">
+    {/* SVGs */}
           <svg
             width="1360"
             height="578"
