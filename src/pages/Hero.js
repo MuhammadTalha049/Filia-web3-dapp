@@ -43,7 +43,10 @@ function HeroHome() {
   };
 
   return (
-    <section className="w-full dark relative bg-black flex flex-col h-screen justify-center items-center md:flex-row overflow-hidden">
+    <section
+      className="w-full dark relative bg-black flex flex-col justify-center items-center md:flex-row overflow-hidden"
+      style={{ height: "100vh", width: "100vw" }}
+    >
       {/* Illustration behind hero content */}
       <div className="absolute left-0 right-0 top-0 bottom-0">
         <svg
