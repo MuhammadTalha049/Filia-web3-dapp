@@ -42,17 +42,16 @@ function HeroHome() {
     navigate("/app");
   };
 
-  const updateBackgroundGradient = () => {
-    const colors = ["rgb(52, 220, 187)", "rgb(52, 169, 220)", "rgb(52, 85, 220)"];
-    const randomIndex = Math.floor(Math.random() * colors.length);
-    const color = colors[randomIndex];
-    return `linear-gradient(45deg, ${color}, #000000)`;
-  };
+  const colors = ["rgb(52, 220, 187)", "rgb(52, 169, 220)", "rgb(52, 85, 220)"];
+  const [currentColorIndex, setCurrentColorIndex] = useState(0);
 
   useEffect(() => {
-    const backgroundGradient = updateBackgroundGradient();
-    document.body.style.background = backgroundGradient;
-  });
+    const interval = setInterval(() => {
+      setCurrentColorIndex((prevIndex) => (prevIndex + 1) % colors.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section
@@ -60,7 +59,8 @@ function HeroHome() {
       style={{
         height: "100vh",
         width: "100vw",
-        background: updateBackgroundGradient(),
+        background: `linear-gradient(45deg, ${colors[currentColorIndex]}, #000000)`,
+        transition: "background 0.5s ease",
       }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
