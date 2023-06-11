@@ -1,214 +1,104 @@
 import React, { useContext } from "react";
 import { FiGithub, FiLinkedin } from "react-icons/fi";
+import { motion } from "framer-motion";
 import { ThemeContext } from "../utils/ThemeContext";
 import { Header } from "../components/Header";
 import Footer from "../components/Footer";
-import { motion } from "framer-motion";
 import metamaskIcon from "../assets/metamask.png";
+import "../styles/aboutpage.css";
 
 const AboutPage = () => {
   const { theme } = useContext(ThemeContext);
-  const cardVariants = {
-    initial: { scale: 1 },
-    hover: { scale: 1.05 },
-  };
 
   const containerVariants = {
     initial: { opacity: 0 },
     animate: { opacity: 1 },
   };
 
-  const containerStyle = {
-    maxWidth: "800px",
-    margin: "0 auto",
-    padding: "0",
-    backgroundColor: theme === "dark" ? "#111827" : "#F3F4F6",
-    color: theme === "dark" ? "#FFFFFF" : "#374151",
-    minHeight: "100vh", // Set the minimum height of the container to occupy the full viewport height
-    display: "flex",
-    flexDirection: "column",
-    position: "relative",
-  };
-
-  const titleStyle = {
-    fontSize: "24px",
-    fontWeight: "bold",
-    marginBottom: "10px",
-  };
-
-  const gridStyle = {
-    display: "grid",
-    gridTemplateColumns: "1fr",
-    gap: "20px",
-    marginTop: "20px",
-    flex: 1,
-  };
-
-  const cardStyle = {
-    padding: "20px",
-    backgroundColor: theme === "dark" ? "#374151" : "#FFFFFF",
-    color: theme === "dark" ? "#FFFFFF" : "#374151",
-    borderRadius: "10px",
-    position: "relative",
-    overflow: "hidden",
-    cursor: "pointer",
-  };
-
-  const textStyle = {
-    fontSize: "20px",
-    fontWeight: "bold",
-    marginBottom: "10px",
-  };
-
-  const listStyle = {
-    listStyleType: "disc",
-    paddingLeft: "20px",
-    marginBottom: "10px",
-  };
-
-  const teamMemberStyle = {
-    marginBottom: "10px",
-    display: "flex", // Added display flex to align avatar and member details horizontally
-  };
-
-  const avatarStyle = {
-    width: "50px",
-    height: "50px",
-    borderRadius: "50%",
-    overflow: "hidden",
-    marginRight: "10px",
-  };
-
-  const avatarImageStyle = {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover", // Ensure the avatar image maintains its aspect ratio
-  };
-
-  const memberNameStyle = {
-    fontSize: "16px",
-    fontWeight: "bold",
-    marginBottom: "5px",
-  };
-
-  const memberRoleStyle = {
-    color: "#888",
-  };
-
-  const socialLinksStyle = {
-    marginTop: "5px",
-  };
-
-  const socialLinkStyle = {
-    marginRight: "5px",
-    padding: "5px",
-    borderRadius: "50%",
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    background: theme === "dark" ? "#4B5563" : "#EDF2F7",
-    color: theme === "dark" ? "#FFFFFF" : "#374151",
-    transition: "background-color 0.3s",
-  };
-
-  const FiliaCard = () => {
-    const filiaCardStyle = {
-      ...cardStyle,
-      background: theme === "dark" ? "#374151" : "#FFFFFF",
-      color: theme === "dark" ? "#FFFFFF" : "#374151",
-    };
-
-    return (
-      <div style={filiaCardStyle}>
-        <h2 style={textStyle}>Filia</h2>
-        <p>
-          Filia is a decentralized video platform that aims to revolutionize the way we consume and share content. With Filia, users have full control over their data and can directly engage with content creators.
-        </p>
-        <ul style={listStyle}>
-          <li>Upload and share videos</li>
-          <li>Discover new content</li>
-          <li>Engage with creators</li>
-          <li>Support your favorite creators</li>
-        </ul>
-      </div>
-    );
-    
-  };
-
-  const TeamMemberCard = ({ name, role, avatar, github, linkedin }) => {
-    const memberCardStyle = {
-      ...cardStyle,
-      background: theme === "dark" ? "#374151" : "#FFFFFF",
-      color: theme === "dark" ? "#FFFFFF" : "#374151",
-    };
-
-    return (
-      <div style={memberCardStyle}>
-        <div style={teamMemberStyle}>
-          <div style={avatarStyle}>
-            <img src={avatar} alt={name} style={avatarImageStyle} />
-          </div>
-          <div>
-            <div style={memberNameStyle}>{name}</div>
-            <div style={memberRoleStyle}>{role}</div>
-          </div>
-        </div>
-        <div style={socialLinksStyle}>
-          {github && (
-            <a href={github} target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
-              <FiGithub />
-            </a>
-          )}
-          {linkedin && (
-            <a href={linkedin} target="_blank" rel="noopener noreferrer" style={socialLinkStyle}>
-              <FiLinkedin />
-            </a>
-          )}
-        </div>
-      </div>
-    );
-    
-  };
-
-  
-
   return (
-    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div className="min-h-screen flex flex-col">
       <Header />
       <motion.div
-        style={containerStyle}
+        className={`container ${theme === "dark" ? "dark" : "light"}`}
         variants={containerVariants}
         initial="initial"
         animate="animate"
       >
-        <h1 style={titleStyle}>About</h1>
-        <div style={gridStyle}>
-          <FiliaCard />
+        <h1 className="title">About</h1>
+        <div className="grid">
+          <div className={`card ${theme === "dark" ? "dark" : "light"}`}>
+            <h2 className="text-style">Filia</h2>
+            <p>
+              Filia is a decentralized video platform that aims to revolutionize the way we consume and share content. With Filia, users have full control over their data and can directly engage with content creators.
+            </p>
+            <ul className="list-style">
+              <li>Upload and share videos</li>
+              <li>Discover new content</li>
+              <li>Engage with creators</li>
+              <li>Support your favorite creators</li>
+            </ul>
+          </div>
           {/* Add more custom cards or components here */}
         </div>
-        <h2 style={textStyle}>Team</h2>
-        <div style={gridStyle}>
-          <TeamMemberCard
-            name="Zohair"
-            role="Backend/Integration"
-            avatar="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png"
-            github="https://github.com/johndoe"
-            linkedin="https://linkedin.com/in/johndoe"
-          />
-          <TeamMemberCard
-            name="Muhammad Talha"
-            role="Smart Contract Developer"
-            avatar="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/512/Ethereum-ETH-icon.png"
-            github="https://github.com/janesmith"
-            linkedin="https://linkedin.com/in/janesmith"
-          />
-          <TeamMemberCard
-            name="Laiba Zulfiqar"
-            role="UI / UX"
-            avatar="https://example.com/david-johnson-avatar.jpg"
-            github="https://github.com/MuhammadTalha049"
-            linkedin="https://linkedin.com/in/davidjohnson"
-          />
+        <h2 className="text-style">Team</h2>
+        <div className="grid">
+          <div className={`card ${theme === "dark" ? "dark" : "light"}`}>
+            <div className="team-member">
+              <div className="avatar">
+                <img src={metamaskIcon} alt="Zohair" className="avatar-image" />
+              </div>
+              <div>
+                <div className="member-name">Zohair</div>
+                <div className="member-role">Backend/Integration</div>
+              </div>
+            </div>
+            <div className="social-links">
+              <a href="https://github.com/johndoe" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FiGithub />
+              </a>
+              <a href="https://linkedin.com/in/johndoe" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FiLinkedin />
+              </a>
+            </div>
+          </div>
+          <div className={`card ${theme === "dark" ? "dark" : "light"}`}>
+            <div className="team-member">
+              <div className="avatar">
+                <img src="https://icons.iconarchive.com/icons/cjdowner/cryptocurrency-flat/512/Ethereum-ETH-icon.png" alt="Muhammad Talha" className="avatar-image" />
+              </div>
+              <div>
+                <div className="member-name">Muhammad Talha</div>
+                <div className="member-role">Smart Contract Developer</div>
+              </div>
+            </div>
+            <div className="social-links">
+              <a href="https://github.com/janesmith" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FiGithub />
+              </a>
+              <a href="https://linkedin.com/in/janesmith" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FiLinkedin />
+              </a>
+            </div>
+          </div>
+          <div className={`card ${theme === "dark" ? "dark" : "light"}`}>
+            <div className="team-member">
+              <div className="avatar">
+                <img src="https://example.com/david-johnson-avatar.jpg" alt="Laiba Zulfiqar" className="avatar-image" />
+              </div>
+              <div>
+                <div className="member-name">Laiba Zulfiqar</div>
+                <div className="member-role">UI / UX</div>
+              </div>
+            </div>
+            <div className="social-links">
+              <a href="https://github.com/MuhammadTalha049" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FiGithub />
+              </a>
+              <a href="https://linkedin.com/in/davidjohnson" target="_blank" rel="noopener noreferrer" className="social-link">
+                <FiLinkedin />
+              </a>
+            </div>
+          </div>
         </div>
       </motion.div>
       <Footer />
