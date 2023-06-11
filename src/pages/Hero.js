@@ -53,13 +53,18 @@ function HeroHome() {
     return () => clearInterval(interval);
   }, []);
 
+  const updateBackgroundGradient = () => {
+    const color = colors[currentColorIndex];
+    return `linear-gradient(45deg, ${color}, #000000)`;
+  };
+
   return (
     <section
       className="w-full dark relative flex flex-col justify-center items-center md:flex-row overflow-hidden"
       style={{
         height: "100vh",
         width: "100vw",
-        background: `linear-gradient(45deg, ${colors[currentColorIndex]}, #000000)`,
+        background: updateBackgroundGradient(),
         transition: "background 0.5s ease",
       }}
     >
