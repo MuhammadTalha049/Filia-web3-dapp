@@ -85,9 +85,7 @@ function HeroHome() {
                 data-aos="zoom-y-out"
                 data-aos-delay="150"
               >
-                Filia is built on top of the Ethereum network, allowing users
-                to create, share, and watch videos without worrying about their
-                privacy.
+                Filia 
               </p>
               {/* Connect wallet button */}
               <div className="flex justify-center">
